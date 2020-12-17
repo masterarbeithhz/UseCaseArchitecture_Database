@@ -91,6 +91,7 @@ VOLUME /var/lib/mysql
 #Mount init file
 COPY setup.sql /docker-entrypoint-initdb.d/
 COPY docker-entrypoint.sh /usr/local/bin/
+RUN chmod 777 /usr/local/bin/docker-entrypoint.sh
 RUN ln -s usr/local/bin/docker-entrypoint.sh /entrypoint.sh # backwards compat
 ENTRYPOINT ["docker-entrypoint.sh"]
 

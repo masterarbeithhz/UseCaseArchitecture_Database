@@ -1,0 +1,24 @@
+#Bereinigt die MySQL Datenbank anhand des Startzeitpunkts
+apiVersion: batch/v1beta1
+kind: CronJob
+metadata:
+  name: jdatabase
+  namespace: default
+spec:
+  schedule: "*/1 * * * *"
+  successfulJobsHistoryLimit: 1
+  failedJobsHistoryLimit: 1
+  jobTemplate:
+    spec:
+      template:
+        spec:
+          containers:
+          - name: jdatabase
+            image: masterarbeithhz/thesis:mysqlJobv6
+            args:
+            - /bin/bash
+            - -c
+            - /opt/gcSession.sh mysql-service root Philipp1
+           # command: ["/opt/gcSession.sh"]
+           # args: ["mysql-service", "root", "Philipp1", "testdb"]
+          restartPolicy: OnFailure

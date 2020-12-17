@@ -1,0 +1,16 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: jdatabase
+spec:
+  ttlSecondsAfterFinished: 100
+  template:
+    spec:
+      containers:
+      - name: jdatabase
+        image: masterarbeithhz/thesis:mysqlJobv10
+        args:
+        - /bin/bash
+        - -c
+        - /opt/gcSession.sh mysql-service root Philipp1
+      restartPolicy: Never

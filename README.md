@@ -1,1 +1,1 @@
-UseCaseArchitecture_Database
+BaseArchitecture_Database

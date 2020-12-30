@@ -16,7 +16,7 @@ spec:
 apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
-  name: mysql-pv-claim-authentication2
+  name: mysql-pv-claim-ucsensors
   labels:
     app: mysquc
   namespace: default
@@ -56,10 +56,10 @@ spec:
         - containerPort: 3306
           name: mysquc
         volumeMounts:
-        - name: mysql-persistent-storage-authentication
+        - name: mysql-persistent-storage-ucsensors
           mountPath: /var/lib/mysql
       volumes:
-      - name: mysql-persistent-storage-authentication
+      - name: mysql-persistent-storage-ucsensors
         persistentVolumeClaim:
-          claimName: mysql-pv-claim-authentication2
+          claimName: mysql-pv-claim-ucsensors
 

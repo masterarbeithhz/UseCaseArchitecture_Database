@@ -33,6 +33,12 @@ pipeline {
       }
     }
 
+    stage('Checkout Source') {
+      steps {
+        git url:"${giturl}", branch:'main'
+      }
+    }
+
     stage("Prepare Yaml") {
         steps {
           script {
@@ -46,11 +52,7 @@ pipeline {
         }
       }
 
-    stage('Checkout Source') {
-      steps {
-        git url:"${giturl}", branch:'main'
-      }
-    }
+
           
     stage('Deploy to GKE') {
         steps{

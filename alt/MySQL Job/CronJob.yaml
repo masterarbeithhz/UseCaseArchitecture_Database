@@ -18,7 +18,7 @@ spec:
             args:
             - /bin/bash
             - -c
-            - /opt/gcSession.sh mysql-service root Philipp1
+            - /opt/gcSession.sh mysquc-service root Philipp1
            # command: ["/opt/gcSession.sh"]
            # args: ["mysql-service", "root", "Philipp1", "testdb"]
           restartPolicy: OnFailure
